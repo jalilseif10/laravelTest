@@ -15,8 +15,13 @@ class CreateProductPropertiesTable extends Migration
     {
         Schema::create('product_properties', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('product')
+                ->onDelete('cascade');
             $table->char('name', 150);
             $table->char('value', 150);
+            $table->integer('stock');
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });

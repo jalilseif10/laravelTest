@@ -15,9 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('category')
+                ->onDelete('cascade');
             $table->char('name', 200);
             $table->text('description');
-            $table->unsignedInteger('category_id');
             $table->char('img', 200);
             $table->timestamps();
         });
