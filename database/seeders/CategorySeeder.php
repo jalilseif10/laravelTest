@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -13,8 +14,12 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(App\ContactCompany::class, 10)->create()->each(function ($company) {
-            $company->contacts()->save(factory(App\Contact::class)->make());
-        });
+        Category::create([
+            'name' => 'mobile',
+        ]);
+
+        Category::create([
+            'name' => 'laptop',
+        ]);
     }
 }

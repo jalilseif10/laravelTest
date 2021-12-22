@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -13,6 +14,11 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Product::create([
+            'name' => 'samsung 128G A37',
+            'description' => 'nice mobile',
+            'img' => 'x1.jpg',
+            'category_id' => 1
+        ]);
     }
 }
