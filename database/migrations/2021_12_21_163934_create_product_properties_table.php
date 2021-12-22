@@ -15,6 +15,7 @@ class CreateProductPropertiesTable extends Migration
     {
         Schema::create('product_properties', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('product_id')->unsigned();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('product')

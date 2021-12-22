@@ -17,8 +17,10 @@ class ProductResource extends JsonResource
         return [
             'name' => $this->name,
             'description' => $this->description,
-            'img' => $this->img,
-            'category' => $this->category,
+            'img' => url('/').'/storage/images/'.$this->img,
+            'created_at' => $this->created_at,
+            'category' => new CategoryResource($this->category),
+            'productProperties' => new ProductPropertyResource($this->productProperties)
         ];
         //return parent::toArray($request);
     }
